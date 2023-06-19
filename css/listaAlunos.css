@@ -1,0 +1,155 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(124,26,29);
+    color: white;
+    width: 100%;
+    font-size: 1.2rem;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navbar-left {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;  
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-right: 20px;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+.nav-link:hover {
+    background-color: rgb(158,134,35);
+    color: white;
+    opacity: 1;
+    border-radius: 8px;
+}
+
+.active{
+    background-color: green;
+}
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main{
+    padding:5px;
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.voltar{
+    display: flex;
+    margin-left: 2%;
+    
+}
+
+.titulo{
+    display: flex;
+    text-align: center;
+}
+
+.cadastro{
+    display: flex;
+    margin-right: 2%;
+}
+
+.topo a{
+    text-decoration: none;
+}
+
+.button {
+    background-color: rgb(158,134,35);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #996600;
+    transition: all 0.5s ease-in-out;
+}
+
+.tabela{
+    padding: 2%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+th,td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+.tabela {
+    height: 65vh; /* Altura desejada para a tabela */
+    overflow-y: scroll;
+}
+
+.finalizar-semestre {
+    margin-top: 20px;
+    text-align: center;
+}
+
+hr{
+    width: 98%
+}
+
+.tabela select {
+    width: 20%; /* Defina a largura desejada para o dropdown */
+}
+
+.finalizar-semestre a{
+    text-decoration: none;
+}

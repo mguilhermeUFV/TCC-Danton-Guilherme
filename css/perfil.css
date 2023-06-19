@@ -1,0 +1,206 @@
+/* Estilos da barra de navegação */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(124, 26, 29);
+    color: white;
+    width: 100%;
+    font-size: 1.2rem;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navbar-left {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-right: 20px;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+.nav-link:hover {
+    background-color: rgb(158, 134, 35);
+    color: white;
+    opacity: 1;
+    border-radius: 8px;
+}
+
+.active {
+    background-color: green;
+}
+
+/* Estilos do corpo da página */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.message-container {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #eaf1ff;
+    border: 1px solid black;
+    border-radius: 4px;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    width: 50%;
+    margin: 2px auto;
+}
+
+/* Estilos do topo da página */
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.voltar {
+    display: flex;
+    margin-left: 2%;
+}
+
+.titulo {
+    display: flex;
+    text-align: center;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.cadastro {
+    display: flex;
+    margin-right: 2%;
+}
+
+.topo a {
+    text-decoration: none;
+}
+
+/* Estilos dos botões */
+.button {
+    background-color: rgb(158, 134, 35);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #996600;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Estilos da linha horizontal */
+hr {
+    width: 98%;
+}
+
+/*Estilo mensagem de erro*/
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.message-container {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    margin: 2px auto;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+hr{
+    width: 98%
+}
