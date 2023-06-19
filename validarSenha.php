@@ -1,9 +1,9 @@
 <?php
 // Conecta ao banco de dados
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "tcc";
+$username = "watkhf_root";
+$password = "bancodedadostcc";
+$dbname = "watkhf_tcc";
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
