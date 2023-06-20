@@ -20,9 +20,9 @@
 
             // Conexão com o banco de dados
             $servername = "localhost";
-            $username = "watkhf_root";
-            $password = "bancodedadostcc";
-            $dbname = "watkhf_tcc";
+            $username = "danton_root";
+            $password = "tcchorasmais";
+            $dbname = "danton_tcc";
 
             $conn = new mysqli($servername, $username, $password, $dbname);
 

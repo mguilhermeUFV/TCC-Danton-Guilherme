@@ -1,8 +1,9 @@
 <?php
+// Conecta ao banco de dados
 $servername = "localhost";
-$username = "watkhf_root";
-$password = "bancodedadostcc";
-$dbname = "watkhf_tcc";
+$username = "root";
+$password = "";
+$dbname = "tcc";
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -33,10 +34,10 @@ if (isset($_FILES["csvFile"]) && !empty($_FILES["csvFile"]["tmp_name"])) {
 
         while (($data = fgetcsv($handle, 1000, ",")) !== false) {
             // Extrai as colunas do arquivo CSV
-            $matricula = $data[0];
-            $nome = $data[1];
-            $status = "Ativo";
-            $semestre = $_POST["semestre"];
+            $servername = "localhost";
+            $username = "danton_root";
+            $password = "tcchorasmais";
+            $dbname = "danton_tcc";
 
             // Executa a query de inserção na tabela tb_alunos_semestre
             $stmt->bind_param("ssss", $matricula, $nome, $status, $semestre);
@@ -47,24 +48,12 @@ if (isset($_FILES["csvFile"]) && !empty($_FILES["csvFile"]["tmp_name"])) {
                 // Obtém o ID do aluno inserido
                 $idAluno = $stmt->insert_id;
 
-                // Gera a senha para o aluno (iniciais do nome + matrícula)
-                $senha = strtoupper(substr($nome, 0, 2)) . $matricula;
+                // Gera a senha para o aluno (iniciais do nome + matrícula) e criptografa usando MD5
+                $senha = md5(strtoupper(substr($nome, 0, 2)) . $matricula);
 
                 // Executa a query de inserção na tabela tb_login
                 $stmtLogin->bind_param("ssi", $matricula, $senha, $idAluno);
                 $stmtLogin->execute();
-
-                // Verifica se ocorreu uma inserção bem-sucedida na tabela tb_login
-                if ($stmtLogin->affected_rows > 0) {
-                    // Inserção na tabela tb_login bem-sucedida
-                    // ...
-                } else {
-                    // Erro ao inserir na tabela tb_login
-                    // ...
-                }
-            } else {
-                // Erro ao inserir na tabela tb_alunos_semestre
-                // ...
             }
         }
 

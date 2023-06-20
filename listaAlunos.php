@@ -20,9 +20,9 @@
 
         // Conexão com o banco de dados
         $servername = "localhost";
-        $username = "watkhf_root";
-        $password = "bancodedadostcc";
-        $dbname = "watkhf_tcc";
+        $username = "danton_root";
+        $password = "tcchorasmais";
+        $dbname = "danton_tcc";
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -71,7 +71,7 @@
                     <a href="indexAdm.php" class="nav-link">Página Inicial</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Coordenador</a>
+                    <a href="perfil.php" class="nav-link">Coordenador</a>
                 </li>
                 <li class="nav-item">
                     <a href="logout.php" class="nav-link">Sair</a>

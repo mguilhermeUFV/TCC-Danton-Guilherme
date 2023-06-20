@@ -1,9 +1,9 @@
 <?php
 // Conecta ao banco de dados
 $servername = "localhost";
-$username = "watkhf_root";
-$password = "bancodedadostcc";
-$dbname = "watkhf_tcc";
+$username = "danton_root";
+$password = "tcchorasmais";
+$dbname = "danton_tcc";
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -16,8 +16,11 @@ if (isset($_POST["matricula"]) && isset($_POST["senha"])) {
     $matricula = mysqli_real_escape_string($conn, $_POST["matricula"]);
     $senha = mysqli_real_escape_string($conn, $_POST["senha"]);
 
+    // Criptografa a senha usando MD5
+    $senhaCriptografada = md5($senha);
+
     // Consulta o banco de dados para verificar se as credenciais de login são válidas
-    $sql = "SELECT * FROM tb_login WHERE matricula = '$matricula' AND senha = '$senha'";
+    $sql = "SELECT * FROM tb_login WHERE matricula = '$matricula' AND senha = '$senhaCriptografada'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -35,9 +38,9 @@ if (isset($_POST["matricula"]) && isset($_POST["senha"])) {
             header("Location: index.php"); // Redireciona para a página do usuário comum
             exit();
         }
-    }else{
+    } else {
         header("Location: login.php?message=" . urlencode("Credenciais inválidas, tente novamente."));
-    } 
+    }
 }
 
 // Fecha a conexão com o banco de dados

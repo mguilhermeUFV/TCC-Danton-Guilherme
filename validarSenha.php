@@ -1,9 +1,9 @@
 <?php
 // Conecta ao banco de dados
 $servername = "localhost";
-$username = "watkhf_root";
-$password = "bancodedadostcc";
-$dbname = "watkhf_tcc";
+$username = "danton_root";
+$password = "tcchorasmais";
+$dbname = "danton_tcc";
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -24,7 +24,7 @@ if (isset($_POST["senha"])) {
         $row = $result->fetch_assoc();
         $senhaDoAluno = $row["senha"];
 
-        if ($senhaAtual != $senhaDoAluno) {
+        if (md5($senhaAtual) != $senhaDoAluno) {
             // Redireciona com mensagem de erro
             header("Location: perfil.php?message=" . urlencode("Senha atual incorreta. Por favor, tente novamente."));
             exit();
@@ -37,8 +37,11 @@ if (isset($_POST["senha"])) {
                 header("Location: perfil.php?message=" . urlencode("As novas senhas não coincidem. Por favor, tente novamente."));
                 exit();
             } else {
+                // Criptografar a nova senha usando MD5
+                $senhaCriptografada = md5($novaSenha);
+
                 // Atualizar a senha no banco de dados
-                $sql = "UPDATE tb_login SET senha = '$novaSenha' WHERE IDAluno = $idAluno";
+                $sql = "UPDATE tb_login SET senha = '$senhaCriptografada' WHERE IDAluno = $idAluno";
                 if ($conn->query($sql) === TRUE) {
                     // Redireciona com mensagem de sucesso
                     header("Location: perfil.php?message=" . urlencode("Senha alterada com sucesso."));

@@ -36,9 +36,9 @@
 
         // Conexão com o banco de dados
         $servername = "localhost";
-        $username = "watkhf_root";
-        $password = "bancodedadostcc";
-        $dbname = "watkhf_tcc";
+        $username = "danton_root";
+        $password = "tcchorasmais";
+        $dbname = "danton_tcc";
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -101,13 +101,13 @@
                 <th>Codigo</th>
                 <th>Atividade</th>
                 <th>Horas</th>
-                <th>Total Contabilizado</th>
+                <th>Contabilizado</th>
                 <th>Avaliação</th>
             </tr>
             <?php
             // Obtém as atividades do aluno com base no ID
             //$query = "SELECT * FROM tb_arquivos_importados JOIN tb_alunos_semestre WHERE IDAluno = '$alunoID' ORDER BY codigoArquivo";
-            $query = "SELECT *,( SELECT SUM(totalContabilizado) FROM tb_arquivos_importados WHERE codigoArquivo = t.codigoArquivo ) AS soma FROM tb_arquivos_importados t WHERE IDAluno = $alunoID ORDER BY codigoArquivo";
+            $query = "SELECT *,( SELECT SUM(totalContabilizado) FROM tb_arquivos_importados WHERE codigoArquivo = t.codigoArquivo AND IDAluno = $alunoID) AS soma FROM tb_arquivos_importados t WHERE IDAluno = $alunoID ORDER BY codigoArquivo";
             $result = $conn->query($query);
 
             if ($result->num_rows > 0) {
@@ -195,11 +195,15 @@
                     codigoArquivo: codigoArquivo
                 },
                 success: function(response) {
+                    alert(response);
                     var values = response.split(",");
                     var maximoAtividade = parseInt(values[0]);
                     var maximoLimite = parseInt(values[1]);
+                    alert("maximoAtividade"+maximoAtividade);
+                    alert("maximoLimite"+maximoLimite);
                     if (!isNaN(maximoAtividade)) {
                         soma = parseInt(soma) + parseInt(totalContabilizado);
+                        alert("soma"+soma);
                         if(totalContabilizado > maximoAtividade || soma > maximoLimite){
                             alert("O valor máximo para essa atividade é de: " + Math.abs(soma - maximoAtividade - totalContabilizado));
                             location.reload();
